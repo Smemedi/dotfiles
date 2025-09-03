@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "null_ls",
+        "vim"
+    ]
+}
