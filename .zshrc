@@ -2,6 +2,10 @@
 
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
+bindkey -M viins '^[[4~' end-of-line
+bindkey -M vicmd '^[[4~' end-of-line
+bindkey -M viins '^[[1~' beginning-of-line
+bindkey -M vicmd '^[[1~' beginning-of-line
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
