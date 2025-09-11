@@ -11,8 +11,8 @@
 		"menu": "on-click",
 		"menu-file": "~/.config/waybar/power_menu.xml",
 		"menu-actions" :{
-			"shutdown": "poweroff",
-			"reboot": "reboot",
+			"shutdown": "systemctl poweroff",
+			"reboot": "sysytemctl reboot",
 			"suspend": "systemctl suspend",
 		}
   },
@@ -24,9 +24,7 @@
 	  }
   },
   "hyprland/window":{
-		"exec": "~/Scripts/waybar-class.sh",
-		"interval": 1,
-	  "format": "<span foreground='#1793D1'>󰣇</span> {class}" 
+	  "format": "<span foreground='#1793D1'>󰣇</span>{class}",
   },
 
   "clock": {
