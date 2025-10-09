@@ -12,8 +12,7 @@
 		"menu-file": "~/.config/waybar/power_menu.xml",
 		"menu-actions" :{
 			"shutdown": "systemctl poweroff",
-			"reboot": "sysytemctl reboot",
-			"suspend": "systemctl suspend",
+			"reboot": "systemctl reboot",
 		}
   },
   "hyprland/workspaces":{
@@ -24,12 +23,12 @@
 	  }
   },
   "hyprland/window":{
-	  "format": "<span foreground='#1793D1'>󰣇</span>{class}",
+	  "format": "<span foreground='#1793D1'>󰣇</span> {class}",
   },
 
   "clock": {
     "format": "<span foreground='#f5c2e7'> </span>{:%a %d | %I:%M %p}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "on-click": "swaync-client -t -sw"
   },
   "battery": {

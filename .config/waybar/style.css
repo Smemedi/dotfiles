@@ -72,6 +72,13 @@ button:hover {
 	border-bottom: 2px solid @red;
 }
 
+#custom-power:focus,
+#custom-power:active {
+    border-bottom: none;
+    outline: none;
+		box-shadow: none;
+}
+
 #pulseaudio,
 #clock,
 #battery,
