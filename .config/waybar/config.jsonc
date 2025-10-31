@@ -24,7 +24,7 @@
 		"all-outputs": true,
   },
   "hyprland/window":{
-	  "format": "<span foreground='#1793D1'>󰣇</span> {initialTitle}",
+	  "format": "| {initialTitle} |",
   },
 
   "clock": {

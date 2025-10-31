@@ -60,6 +60,9 @@ button:hover {
 	background-color: @surface0;
 	padding: 5px;
 }
+#window {
+	color: @text;
+}
 
 #custom-power {
 	background-color: @surface0;
