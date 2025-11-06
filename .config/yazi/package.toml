@@ -3,5 +3,10 @@ use = "yazi-rs/plugins:full-border"
 rev = "8f1d971"
 hash = "3996fc74044bc44144b323686f887e1"
 
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "c264639"
+hash = "e17c11b605d989568a1d1741ca17c584"
+
 [flavor]
 deps = []
