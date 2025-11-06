@@ -22,12 +22,11 @@ window#waybar {
 
 .modules-left{
 	border-radius: 13px;
-	background-color: @surface0;
+	background-color: rgba(31, 32, 44, 0.9);
 	padding: 5px;
 }
 
 button {
-    border: none;
     border-radius: 0;
     color: @mauve;
 }
@@ -41,7 +40,6 @@ button:hover {
 }
 
 #workspaces button {
-    background-color: @surface0; 
     padding: 0 4px;
 }
 
@@ -51,21 +49,20 @@ button:hover {
 
 .modules-right {
 	border-radius: 13px;
-	background-color: @surface0;
+	background-color: rgba(31, 32, 44, 0.9);
 	padding: 5px;
 }
 
 .modules-center {
 	border-radius: 13px;
-	background-color: @surface0;
+	background-color: rgba(31, 32, 44, 0.9);
 	padding: 5px;
 }
 #window {
-	color: @text;
+	color: @sky;
 }
 
 #custom-power {
-	background-color: @surface0;
 	color: @red;
 	padding: 0 4px;
 	font-size: 20px;
