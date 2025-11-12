@@ -1,0 +1,27 @@
+{
+		"no-version-info": true,
+    "show-keybinds": true,
+    "buttons": [
+        {
+            "label": "lock",
+            "action": "hyprlock",
+            "text": "Lock",
+            "keybind": "l",
+            "icon": "/home/Sokol/.config/wleave/icons/lock.svg"
+        },
+        {
+            "label": "shutdown",
+            "action": "systemctl poweroff",
+            "text": "Shutdown",
+            "keybind": "s",
+            "icon": "/home/Sokol/.config/wleave/icons/shutdown.svg"
+        },
+        {
+            "label": "reboot",
+            "action": "systemctl reboot",
+            "text": "Reboot",
+            "keybind": "r",
+            "icon": "/home/Sokol/.config/wleave/icons/reboot.svg"
+        }
+    ]
+}

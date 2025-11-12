@@ -1,0 +1,70 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(36, 39, 58, 0.9);
+}
+
+button {
+	color: #cad3f5;
+	background-color: #1e2030;
+	border: 1px solid #91d7e3;
+	border-radius: 0;
+	padding: 10px;
+	text-decoration-color: #cad3f5;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button label.action-name {
+	font-size: 24px;
+}
+
+button label.keybind {
+	font-size: 20px;
+	font-family: monospace;
+}
+
+button:hover label.keybind,
+button:focus label.keybind {
+	opacity: 1;
+}
+
+button:focus,
+button:hover {
+	background-color: rgb(53, 57, 75);
+	outline-style: none;
+}
+
+button:active {
+	background-color: rgb(53, 57, 75);
+	color: #cad3f5;
+}
+
+/* Example: optional accent variants if desired */
+button#shutdown {
+	--view-fg-color: #ff8d8d;
+}
+
+button#hibernate {
+	--view-fg-color: #a8c0ff;
+}
+
+button#reboot {
+	--view-fg-color: #84ffaa;
+}
+
+button#lock {
+	--view-fg-color: #ffe8b6;
+}
+
+button#logout {
+	--view-fg-color: #ffcca8;
+}
+
+button#suspend {
+	--view-fg-color: #caaff9;
+}
