@@ -22,7 +22,7 @@ window#waybar {
 
 .modules-left{
 	border-radius: 13px;
-	background-color: rgba(31, 32, 44, 0.9);
+	background-color: rgba(31, 32, 44, 0.75);
 	padding: 5px;
 }
 
@@ -49,34 +49,17 @@ button:hover {
 
 .modules-right {
 	border-radius: 13px;
-	background-color: rgba(31, 32, 44, 0.9);
+	background-color: rgba(31, 32, 44, 0.75);
 	padding: 5px;
 }
 
 .modules-center {
 	border-radius: 13px;
-	background-color: rgba(31, 32, 44, 0.9);
+	background-color: rgba(31, 32, 44, 0.75);
 	padding: 5px;
 }
 #window {
 	color: @sky;
-}
-
-#custom-power {
-	color: @red;
-	padding: 0 4px;
-	font-size: 20px;
-}
-
-#custom-power:hover {
-	border-bottom: 2px solid @red;
-}
-
-#custom-power:focus,
-#custom-power:active {
-    border-bottom: none;
-    outline: none;
-		box-shadow: none;
 }
 
 #pulseaudio,
