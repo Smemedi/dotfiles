@@ -1,9 +1,11 @@
 {
   "position": "top",
+	"mode": "dock",
+	"layer": "bottom",
   "font": "Monospace 12",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": ["clock", "battery", "network", "pulseaudio"],
 
   "hyprland/workspaces":{
 	  "format": "{icon}",
@@ -11,16 +13,15 @@
 		  "default": "",
 		  "active": ""
 	  },
-		"all-outputs": true,
+		"all-outputs": true
   },
   "hyprland/window":{
-	  "format": "| {initialTitle} |",
+	  "format": "| {initialTitle} |"
   },
 
-  "clock": {
-    "format": "<span foreground='#f5c2e7'> </span>{:%a %d | %I:%M %p}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "on-click": "swaync-client -t -sw"
+	  "clock": {
+    "format": "<span foreground='#f5c2e7'>󰃭 </span>{:%a %d | %I:%M %p}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
   },
   "battery": {
         "states": {
@@ -38,12 +39,12 @@
     "cursor": false
   },
   "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": "  Ethernet",
-    "format-linked": "  Linked (No IP)",
-    "format-disconnected": "  Disconnected",
+    "format-wifi": " ",
+    "format-ethernet": " ",
+    "format-linked": " ",
+    "format-disconnected": " ",
     "tooltip": false,
-		"on-click": "nm-connection-editor"
+		"on-click": "swaync-client -t -sw"
   },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
@@ -51,7 +52,6 @@
       "format-icons": {
           "default": ["", "", ""]
       },
-      "on-click": "pavucontrol",
-			"on-click-right": "GDK_BACKEND=x11 blueman-manager"
+      "on-click": "swaync-client -t -sw"
   }
 }

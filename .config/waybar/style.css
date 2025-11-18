@@ -53,6 +53,10 @@ button:hover {
 	padding: 5px;
 }
 
+.modules-right:hover {
+    border-bottom-color: #ffffff;
+}
+
 .modules-center {
 	border-radius: 13px;
 	background-color: rgba(31, 32, 44, 0.75);
@@ -62,11 +66,9 @@ button:hover {
 	color: @sky;
 }
 
-#pulseaudio,
 #clock,
 #battery,
-#backlight,
-#network {
+#backlight{
   font-weight: bold;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -75,6 +77,12 @@ button:hover {
   padding-left: 4px;
   padding-right: 4px;
 }
+
+#network,
+#pulseaudio{
+	font-weight: bold;
+}
+
 
 #clock {
     color: @maroon;
@@ -91,26 +99,26 @@ button:hover {
 }
 
 #pulseaudio {
-    color: @blue;
+    color: @green;
+		padding-left: 2px;
+		padding-right: 4px;
 }
-
-#pulseaudio:hover {
-	border-bottom: 2px solid @blue;
-}
-
 
 #network {
-    color: @yellow;
+    color: @green;
+		padding-left: 4px;
+		padding-right: 2px;
 }
 
-#network:hover {
-	border-bottom: 2px solid @yellow;
+#network:hover,
+#pulseaudio:hover {
+	border-bottom: 2px solid @green;
 }
 
 #battery {
-    color: @green;
+    color: @yellow;
 }
 
 #battery:hover {
-    border-bottom: 2px solid @green;
+    border-bottom: 2px solid @yellow;
 }
