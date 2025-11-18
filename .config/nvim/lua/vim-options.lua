@@ -3,7 +3,6 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
 vim.cmd("set nowrap")
-vim.g.mapleader = " "
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -29,3 +28,8 @@ vim.keymap.set('v', '<Up>', '<Nop>')
 vim.keymap.set('v', '<Down>', '<Nop>')
 vim.keymap.set('v', '<Left>', '<Nop>')
 vim.keymap.set('v', '<Right>', '<Nop>')
+
+--vim.cmd("highlight Normal guibg=none")
+--vim.cmd("highlight Normalnc guibg=none")
+--vim.cmd("highlight NeoTreeNormal guibg=NONE ctermbg=NONE")
+--vim.cmd("highlight NeoTreeNormalnc guibg=NONE ctermbg=NONE")

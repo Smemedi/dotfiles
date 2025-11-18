@@ -33,8 +33,8 @@ return {
                 },
                 window = {
                     mappings = {
-                        ["<BS>"] = "navigate_up", -- Alternative key for parent directory
-												["<Bslash>"] = function(state)
+                        ["h"] = "navigate_up", -- Alternative key for parent directory
+												["l"] = function(state)
 													local node = state.tree:get_node()
 													if node.type == "directory" then
 															require("neo-tree.sources.filesystem.commands").set_root(state)
