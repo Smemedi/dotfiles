@@ -10,26 +10,26 @@ hour=$(date +%-H)
 wallpaper_dir="$HOME/wallpapers"
 
 if (( hour >= 22 || (hour >= 0 && hour <= 4) )); then
-  swww img "$HOME/wallpapers/first.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/first.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif (( hour >= 5 && hour <= 7 )); then
-  swww img "$HOME/wallpapers/second.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/second.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif ((hour >= 8 && hour <= 9 )); then
-  swww img "$HOME/wallpapers/third.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/third.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif ((hour >= 10 && hour <= 11 )); then
-  swww img "$HOME/wallpapers/fourth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/fourth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif ((hour >= 12 && hour <= 14 )); then
-  swww img "$HOME/wallpapers/fifth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/fifth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif ((hour >= 15 && hour <= 16 )); then
-  swww img "$HOME/wallpapers/sixth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/sixth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif ((hour >= 17 && hour <= 19 )); then
-  swww img "$HOME/wallpapers/seventh.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/seventh.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 
 elif ((hour >= 20 && hour <= 21 )); then
-  swww img "$HOME/wallpapers/eighth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
+  swww img "$HOME/Pictures/wallpapers/eighth.jpg" --transition-type any --transition-fps 60 --transition-duration 3
 fi
