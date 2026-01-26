@@ -1,0 +1,73 @@
+import QtQuick
+import QtQuick.Layouts
+import "../../Scripts"
+import "../.."
+
+// Network/WiFi indicator
+Item {
+    id: networkIndicator
+
+    implicitWidth: row.implicitWidth
+    implicitHeight: Config.panelHeight
+
+    property bool connected: NetworkService.connected
+    property string type: NetworkService.type
+    property int strength: NetworkService.strength
+
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+        spacing: 4
+
+        // Network icon
+        Text {
+            text: {
+                if (!connected || type === "none") return "󰤭" // disconnected
+                if (type === "ethernet") return "󰈀" // ethernet
+                // WiFi with signal strength
+                if (strength < 25) return "󰤟" // weak
+                if (strength < 50) return "󰤢" // fair
+                if (strength < 75) return "󰤥" // good
+                return "󰤨" // excellent
+            }
+            font.family: "Symbols Nerd Font, JetBrainsMono Nerd Font, Font Awesome 6 Free"
+            font.pixelSize: 16
+            color: {
+                if (!connected || type === "none") return "#0000FF"
+                if (type == "ethernet") return "#a6e3a1"
+                if (strength < 75) return "#a6e3a1"
+                if (strength < 50) return "#f9e2af"
+                if (strength < 25) return "#f38ba8"
+                return "#a6e3a1"
+            }
+            Layout.alignment: Qt.AlignVCenter
+        }
+    }
+
+    Rectangle {
+        id: hoverBg
+        anchors.fill: parent
+        anchors.margins: 2
+        radius: Config.borderRadius
+        color: Config.hoverColor
+        opacity: mouseArea.containsMouse ? 1 : 0
+        
+        Behavior on opacity {
+            NumberAnimation { duration: 100 }
+        }
+    }
+
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked: {
+            // Open Control Center (root is ShellRoot from shell.qml)
+            if (root.controlCenter) {
+                root.controlCenter.toggle()
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+singleton AudioService 1.0 AudioService.qml
+singleton BrightnessService 1.0 BrightnessService.qml
+singleton NetworkService 1.0 NetworkService.qml
+singleton BluetoothService 1.0 BluetoothService.qml
+singleton battery_script 1.0 battery_script.qml
+singleton NotificationService 1.0 NotificationService.qml

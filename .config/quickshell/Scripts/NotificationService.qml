@@ -1,0 +1,79 @@
+pragma Singleton
+import QtQuick
+import Quickshell
+import Quickshell.Services.Notifications
+import Quickshell.Io
+
+Item {
+    id: root
+    
+    property var popupComponent: Qt.createComponent("NotificationPopup.qml")
+    
+    NotificationServer {
+        id: server
+        
+        onNotification: (notification) => {
+            notification.tracked = true
+            
+            // Create popup
+            var popup = popupComponent.createObject(null, {
+                summary: notification.summary,
+                body: notification.body,
+                appIcon: notification.appIcon || notification.appName || "",
+                notification: notification
+            })
+        }
+    }
+    
+    readonly property var notifications: server.trackedNotifications
+    
+    // Processes for focusing/launching
+    property var findWindowProc: Process {
+        id: findProc
+        property string appClass: ""
+        command: ["sh", "-c", "hyprctl clients -j | jq -r '.[] | select(.class == \"" + appClass + "\") | .address' | head -1"]
+        property string windowAddress: ""
+        
+        stdout: SplitParser {
+            onRead: function(line) {
+                findProc.windowAddress = line.trim()
+            }
+        }
+        
+        onExited: {
+            if (windowAddress) {
+                focusWindowProc.windowAddr = windowAddress
+                focusWindowProc.running = true
+            } else {
+                launchAppProc.running = true
+            }
+        }
+    }
+    
+    property var focusWindowProc: Process {
+        id: focusProc
+        property string windowAddr: ""
+        command: ["hyprctl", "dispatch", "focuswindow", "address:" + windowAddr]
+    }
+    
+    property var launchAppProc: Process {
+        id: launchProc
+        property string desktopEntry: ""
+        command: ["gtk-launch", desktopEntry]
+    }
+    
+    function focusOrLaunchApp(notification) {
+        var desktopEntry = notification.desktopEntry || notification.appName || ""
+        
+        if (desktopEntry) {
+            launchAppProc.desktopEntry = desktopEntry
+            findWindowProc.appClass = desktopEntry
+            findWindowProc.running = true
+        }
+    }
+    
+    function closeNotification(notif) {
+        notif.tracked = false
+        notif.close(NotificationCloseReason.DismissedByUser)
+    }
+}
