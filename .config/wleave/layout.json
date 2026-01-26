@@ -1,6 +1,7 @@
 {
 		"no-version-info": true,
     "show-keybinds": true,
+		"buttons-per-row": "2",
     "buttons": [
         {
             "label": "lock",
@@ -16,6 +17,13 @@
             "keybind": "s",
             "icon": "/home/Sokol/.config/wleave/icons/shutdown.svg"
         },
+				{
+					"label": "sleep",
+					"action": "suspend",
+					"text": "Sleep",
+					"keybind": "z",
+					"icon": "/home/Sokol/.config/wleave/icons/suspend.svg"
+				},
         {
             "label": "reboot",
             "action": "systemctl reboot",
