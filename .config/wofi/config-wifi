@@ -1,0 +1,8 @@
+prompt = Run:
+width = 385
+height = 400
+xoffset = 1180
+yoffset = 0
+hide_search = true
+hide_scroll = true
+close_on_focus_loss = true
