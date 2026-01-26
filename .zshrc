@@ -15,8 +15,12 @@ eval "$(starship init zsh)"
 export EDITOR=nvim
 
 export TMUX_CONF=~/.config/tmux/tmux.conf
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias sp='sudo pacman'
+alias spua='sudo pacman -Syu'
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
