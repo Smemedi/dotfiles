@@ -131,17 +131,24 @@ PanelWindow {
                 Image {
                     id: iconImage
                     anchors.fill: parent
-                    anchors.margins: 6
-                    fillMode: Image.PreserveAspectFit
+                    anchors.margins: modelData.image ? 0 : 6
+                    fillMode: Image.PreserveAspectCrop
                     source: {
-                        var icon = popup.appIcon || "";
-                        if (icon) {
-                            if (icon.startsWith("/") || icon.startsWith("file://"))
-                                return icon.startsWith("file://") ? icon : "file://" + icon;
-                            return "image://icon/" + icon;
-                        }
-                        return "";
-                    }
+											if (notification && notification.image) {
+													var img = notification.image;
+													if (img.startsWith("/") || img.startsWith("file://"))
+															return img.startsWith("file://") ? img : "file://" + img;
+													return img;
+											}
+											
+											var icon = popup.appIcon || (notification ? notification.appIcon : "") || "";
+											if (icon) {
+													if (icon.startsWith("/") || icon.startsWith("file://"))
+															return icon.startsWith("file://") ? icon : "file://" + icon;
+													return "image://icon/" + icon;
+											}
+											return "";
+										}
                     visible: status === Image.Ready
                 }
                 

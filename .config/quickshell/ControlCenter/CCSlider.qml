@@ -92,22 +92,21 @@ Rectangle {
             }
         }
 
+				onWheel: function(wheel){
+					let delta = wheel.angleDelta.y < 0 ? 2 : -2
+					let newValue = Math.max(0, Math.min(100, slider.value + delta))
+					if (newValue !== slider.value) {
+						slider.value = newValue
+						slider.sliderMoved(newValue)
+					}
+
+					wheel.accepted = true
+				}
+
         function updateValue(mouse) {
             // Calculate value from position (inverted: top = 100, bottom = 0)
             let newValue = Math.round((1 - mouse.y / slider.height) * 100)
             newValue = Math.max(0, Math.min(100, newValue))
-            if (newValue !== slider.value) {
-                slider.value = newValue
-                slider.sliderMoved(newValue)
-            }
-        }
-    }
-
-    // Scroll wheel support
-    WheelHandler {
-        onWheel: function(event) {
-            let delta = event.angleDelta.y > 0 ? 5 : -5
-            let newValue = Math.max(0, Math.min(100, slider.value + delta))
             if (newValue !== slider.value) {
                 slider.value = newValue
                 slider.sliderMoved(newValue)

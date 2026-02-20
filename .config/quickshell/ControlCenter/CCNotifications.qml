@@ -47,20 +47,28 @@ Item {
                         color: "#45475a"
                         radius: 8
                         
-                        Image {
+												Image {
+														id: delegateImage
                             anchors.fill: parent
-                            anchors.margins: 6
-                            fillMode: Image.PreserveAspectFit
+                            anchors.margins: modelData.image ? 0 : 6
+                            fillMode: Image.PreserveAspectCrop
                             source: {
-                                var icon = modelData.appIcon || "";
-                                if (icon) {
-                                    if (icon.startsWith("/") || icon.startsWith("file://"))
-                                        return icon.startsWith("file://") ? icon : "file://" + icon;
-                                    return "image://icon/" + icon;
-                                }
-                                return "";
-                            }
-                            visible: status === Image.Ready
+															if (modelData.image) {
+																	var img = modelData.image;
+																	if (img.startsWith("/") || img.startsWith("file://"))
+																			return img.startsWith("file://") ? img : "file://" + img;
+																	return img;
+															}
+															
+															var icon = modelData.appIcon || "";
+															if (icon) {
+																	if (icon.startsWith("/") || icon.startsWith("file://"))
+																			return icon.startsWith("file://") ? icon : "file://" + icon;
+																	return "image://icon/" + icon;
+															}
+															return "";
+														}
+														visible: status === Image.Ready
                         }
                         
                         Text {
