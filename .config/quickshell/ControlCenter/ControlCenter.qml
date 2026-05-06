@@ -6,7 +6,6 @@ import Quickshell.Io
 import ".."
 import "../Scripts"
 
-// Optimized GNOME/macOS-style Control Center
 PanelWindow {
     id: cc
 
@@ -48,22 +47,17 @@ PanelWindow {
     }
 
     // Detect when mouse leaves the control center
-    MouseArea {
-        id: hoverDetector
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered: closeTimer.stop()
-        onExited: closeTimer.start()
-    }
-
+		HoverHandler {
+				id: hoverDetector
+				onHoveredChanged: {
+						if (hovered) {
+								closeTimer.stop()
+						} else {
+								closeTimer.start()
+						}
+				}
+		}
     // Single process for power profile
-
-    function setPowerProfile(profile) {
-        powerProfile = profile
-        powerProc.action = profile === "power-saver" ? "laptop-battery-powersave"
-            : profile === "performance" ? "throughput-performance" : "balanced"
-        powerProc.running = true
-    }
 
     function toggleAirplaneMode() {
         airplaneMode = !airplaneMode

@@ -22,7 +22,7 @@ PanelWindow {
     }
     
     margins {
-        top: 40
+        top: 25
         right: 12
     }
     
@@ -164,7 +164,7 @@ PanelWindow {
             
             Column {
                 spacing: 6
-                width: parent.width - 64  // Account for icon and spacing
+                width: parent.width - 64
                 anchors.verticalCenter: parent.verticalCenter
                 
                 Text {
@@ -177,7 +177,7 @@ PanelWindow {
                 }
                 
                 Text {
-                    text: popup.body
+										text: popup.body
                     font.pixelSize: 12
                     color: "#a6adc8"
                     width: parent.width

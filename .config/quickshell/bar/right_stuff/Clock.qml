@@ -10,7 +10,7 @@ Item {
     implicitWidth: timeText.implicitWidth + 8
     implicitHeight: Config.panelHeight
 
-    property string timeFormat: "ddd MMM d|h:mm AP"
+    property string timeFormat: "ddd MMM d | h:mm AP"
 
     Text {
         id: timeText

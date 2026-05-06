@@ -33,7 +33,6 @@ Item {
             font.pixelSize: 16
 						color: {
                 let pct = Math.round(batteryLevel * 100)
-                if (isCharging) return "#a6e3a1"
                 if (pct >= 50) return "#a6e3a1"
                 if (pct >= 30) return "#f9e2af"
                 if (pct >= 20) return "#f38ba8"
@@ -49,7 +48,6 @@ Item {
 						font.family: Config.fontFamily
             color: {
                 let pct = Math.round(batteryLevel * 100)
-                if (isCharging) return "#a6e3a1"
                 if (pct >= 50) return "#a6e3a1"
                 if (pct >= 30) return "#f9e2af"
                 if (pct >= 20) return "#f38ba8"

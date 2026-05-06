@@ -6,7 +6,6 @@ Item {
 		property int spacing: 6
 		height: 30
 
-    // Pill-shaped background
     Rectangle {
         id: background
         anchors.fill: parent
