@@ -71,7 +71,7 @@ Rectangle {
         font.family: Config.fontFamily
         font.pixelSize: 12
         font.weight: Font.Bold
-        color: value > 70 ? Config.ccModuleBackground : Config.panelForeground
+        color: Config.panelForeground
     }
 
     // Drag handling
