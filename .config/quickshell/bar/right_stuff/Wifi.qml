@@ -31,7 +31,7 @@ Item {
                 return "󰤨" // excellent
             }
             font.family: "Symbols Nerd Font, JetBrainsMono Nerd Font, Font Awesome 6 Free"
-            font.pixelSize: 16
+            font.pixelSize: Config.iconSize
             color: {
                 if (!connected || type === "none") return "#0000FF"
                 if (type == "ethernet") return "#a6e3a1"

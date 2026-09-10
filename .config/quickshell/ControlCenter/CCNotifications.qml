@@ -128,17 +128,31 @@ Item {
 												}
 										}
 
-                    Text {
-                        text: "✕"
-                        color: "#f38ba8"
-                        font.pixelSize: 16
-                        Layout.alignment: Qt.AlignTop
+										Rectangle {
+											anchors.top: parent.top
+											anchors.right: parent.right
+											anchors.margins: 8
+											width: 20
+											height: 20
+											radius: 10
+											color: closeMouse.containsMouse ? "#f38ba8" : "transparent"
+											z: 10
 
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: NotificationService.closeNotification(modelData)
-                        }
-                    }
+											Text {
+													anchors.centerIn: parent
+													text: "✕"
+													color: "#cdd6f4"
+													font.pixelSize: 12
+													Layout.alignment: Qt.AlignTop
+
+													MouseArea {
+															id: closeMouse
+															hoverEnabled: true
+															anchors.fill: parent
+															onClicked: NotificationService.closeNotification(modelData)
+													}
+											}
+										}
                 }
             }
         }

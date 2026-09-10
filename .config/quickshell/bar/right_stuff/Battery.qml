@@ -7,7 +7,7 @@ import "../.."
 Item {
     id: root
     implicitWidth: row.implicitWidth
-    implicitHeight: 30
+    implicitHeight: Config.panelHeight
     
     readonly property UPowerDevice device: UPower.displayDevice
     readonly property bool batteryAvailable: device && device.ready && device.isLaptopBattery
@@ -30,7 +30,7 @@ Item {
                 if (pct >= 20) return "󰁼"
                 return "󰁺"
             }
-            font.pixelSize: 16
+            font.pixelSize: Config.iconSize
 						color: {
                 let pct = Math.round(batteryLevel * 100)
                 if (pct >= 50) return "#a6e3a1"
@@ -44,7 +44,7 @@ Item {
         // Percentage text
         Text {
             text: Math.round(batteryLevel * 100) + "%"
-						font.pixelSize: 14
+						font.pixelSize: Config.fontSize
 						font.family: Config.fontFamily
             color: {
                 let pct = Math.round(batteryLevel * 100)

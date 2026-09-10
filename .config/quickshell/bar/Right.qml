@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
+import ".."
 import "right_stuff" as RightStuff
 
 Item {
     width: background.width
-    height: 30
+    height: Config.panelHeight
     
     Rectangle {
         id: background

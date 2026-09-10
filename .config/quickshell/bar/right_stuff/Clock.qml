@@ -20,7 +20,8 @@ Item {
         color: Config.panelForeground
         font.family: Config.fontFamily
         font.pixelSize: Config.fontSize
-        font.weight: Font.Medium
+				font.bold: true
+        font.weight: Font.Bold
     }
 
     // Update every second

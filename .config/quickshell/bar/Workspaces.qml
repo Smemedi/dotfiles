@@ -1,23 +1,23 @@
 import QtQuick
 import Quickshell.Hyprland
+import ".."
 
 Item {
     id: workspaceModule
 		property int spacing: 6
-		height: 30
+	height: Config.panelHeight
 
     Rectangle {
         id: background
         anchors.fill: parent
         radius: 10
-				color: "#c0313244"
-				anchors.margins: 2   // optional inner padding
-				opacity: 1
+		color: "#c0313244"
+		anchors.margins: 2   // optional inner padding
+		opacity: 1
 
         Row {
             id: row
-            anchors.fill: parent
-            anchors.margins: 6
+            anchors.centerIn: parent
             spacing: 8
 
             Repeater {
@@ -45,6 +45,6 @@ Item {
 
     // Set the module's implicit size so MainBar can layout properly
     implicitWidth: row.childrenRect.width + 16
-    implicitHeight: 30
+    implicitHeight: Config.panelHeight
 }
 

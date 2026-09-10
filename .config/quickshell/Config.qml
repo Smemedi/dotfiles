@@ -4,15 +4,15 @@ import Quickshell
 
 Singleton {
     // Panel settings
-    readonly property int panelHeight: 32
+    readonly property int panelHeight: 40
     readonly property real panelOpacity: 0.45
     readonly property color panelBackground: "#1a1a1a"
     readonly property color panelForeground: "#ffffff"
     
     // Font settings (SF Pro style, fallback to system sans)
-    readonly property string fontFamily: "MesloLGS Nerd Font Mono Bold"
-    readonly property int fontSize: 13
-    readonly property int fontSizeSmall: 11
+    readonly property string fontFamily: "JetBrains Mono"
+    readonly property int fontSize: 16
+    readonly property int fontSizeSmall: 13
     
     // Colors
     readonly property color accentColor: "#007AFF"
@@ -25,7 +25,7 @@ Singleton {
     
     // Spacing
     readonly property int itemSpacing: 12
-    readonly property int iconSize: 18
+    readonly property int iconSize: 22
     readonly property int borderRadius: 8
     
     // Control Center settings

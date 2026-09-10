@@ -1,9 +1,10 @@
 import QtQuick
 import Quickshell.Hyprland
+import ".."
 
 Item {
     width: background.width
-    height: 30
+    height: Config.panelHeight
 
     Rectangle {
         id: background
@@ -15,9 +16,10 @@ Item {
         Text {
             id: windowText
             anchors.centerIn: parent
-            font.pixelSize: 14
-            font.family: "MesloLGS Nerd Font Mono Bold"
-            font.bold: true
+            font.pixelSize: Config.fontSize
+            font.family: Config.fontFamily
+						font.bold: true
+						font.weight: Font.bold
             color: "#89dceb"
             text: {
 								var currentWorkspace = Hyprland.focusedMonitor?.activeWorkspace;

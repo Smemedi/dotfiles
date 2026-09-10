@@ -35,6 +35,7 @@ PanelWindow {
     
     // Auto-close timer
     Timer {
+        id: closeTimer
         interval: popup.lifetime
         running: true
         onTriggered: popup.destroy()
@@ -57,8 +58,10 @@ PanelWindow {
             if (windowAddress) {
                 focusProc.windowAddr = windowAddress
                 focusProc.running = true
+                destroyTimer.start()
             } else {
                 launchProc.running = true
+                destroyTimer.start()
             }
         }
     }
@@ -82,21 +85,25 @@ PanelWindow {
 		}
 
     function handleClick() {
-    if (!notification) {
-        popup.destroy()
-        return
+        if (!notification) {
+            popup.destroy()
+            return
+        }
+        
+        // Stop the auto-close timer so the popup stays alive while processing
+        closeTimer.stop()
+        
+        var desktopEntry = notification.desktopEntry || notification.appName || ""
+        
+        if (desktopEntry) {
+            launchProc.desktopEntry = desktopEntry
+            findWindowProc.appClass = desktopEntry
+            findWindowProc.running = true
+        } else {
+            // Destroy immediately if no app to launch
+            popup.destroy()
+        }
     }
-    
-    var desktopEntry = notification.desktopEntry || notification.appName || ""
-    
-    if (desktopEntry) {
-        launchProc.desktopEntry = desktopEntry
-        findWindowProc.appClass = desktopEntry
-        findWindowProc.running = true
-    }
-    
-    popup.destroy()
-}
     
     Rectangle {
         id: background

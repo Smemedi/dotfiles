@@ -31,21 +31,24 @@ Item {
     property var findWindowProc: Process {
         id: findProc
         property string appClass: ""
-        command: ["sh", "-c", "hyprctl clients -j | jq -r '.[] | select(.class == \"" + appClass + "\") | .address' | head -1"]
         property string windowAddress: ""
+        command: ["sh", "-c", "hyprctl clients -j | jq -r '.[] | select(.class == \"" + appClass + "\") | .address' | head -1"]
+        
+        onRunningChanged: {
+            if (!running && windowAddress === "") {
+                // Process finished but no output, try launching
+                launchAppProc.running = true
+            }
+        }
         
         stdout: SplitParser {
             onRead: function(line) {
                 findProc.windowAddress = line.trim()
-            }
-        }
-        
-        onExited: {
-            if (windowAddress) {
-                focusWindowProc.windowAddr = windowAddress
-                focusWindowProc.running = true
-            } else {
-                launchAppProc.running = true
+                if (findProc.windowAddress) {
+                    findProc.running = false
+                    focusWindowProc.windowAddr = findProc.windowAddress
+                    focusWindowProc.running = true
+                }
             }
         }
     }
@@ -66,6 +69,9 @@ Item {
         var desktopEntry = notification.desktopEntry || notification.appName || ""
         
         if (desktopEntry) {
+            // Reset state
+            findProc.windowAddress = ""
+            
             launchAppProc.desktopEntry = desktopEntry
             findWindowProc.appClass = desktopEntry
             findWindowProc.running = true
