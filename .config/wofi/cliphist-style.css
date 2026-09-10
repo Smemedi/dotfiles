@@ -1,3 +1,4 @@
+
 * {
 	font-family: "Hack", monospace;
 }
@@ -35,7 +36,6 @@ window {
 }
 
 #text {
-	font-size: 16px;
 	padding: 4px;
 	color: #c6d0f5;
 }

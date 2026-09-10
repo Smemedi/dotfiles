@@ -1,9 +1,11 @@
-prompt = Run:
-width = 320
-height = 220
+prompt = 
+width = 350
+lines = 8
 location = top
 yoffset = -45
 hide_scroll = true
 allow_images = true
 no_actions = true
-
+insensitive = true
+single_click = true
+image_size = 40

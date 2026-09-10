@@ -1,0 +1,9 @@
+width = 200
+height = 300
+xoffset = 1375
+yoffset = 575
+print_line_num = false
+hide_search = true
+hide_scroll = true
+close_on_focus_loss = true
+line_wrap = word
