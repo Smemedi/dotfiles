@@ -18,7 +18,7 @@ hl.monitor({
   output = "",
   mode = "preferred",
   position = "auto",
-  scale = "1.20",
+  scale = "1",
 })
 
 ---------------------
@@ -27,7 +27,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal = "ghostty"
-local fileManager = "yazi"
+local fileManager = "ghostty -e yazi"
 local menu = "~/Scripts/wofi.sh"
 
 -------------------
@@ -39,15 +39,17 @@ local menu = "~/Scripts/wofi.sh"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
- hl.on("hyprland.start", function ()
-   hl.exec_cmd("brightnessctl set 1 & hyprlock &")
-   hl.exec_cmd("qs &")
-   hl.exec_cmd("awww-daemon &")
-   hl.exec_cmd("~/Scripts/set-wallpaper.sh")
-   hl.exec_cmd("sleep 10 &")
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
- end)
+hl.on("hyprland.start", function()
+  hl.exec_cmd("brightnessctl set 1 & hyprlock &")
+  hl.exec_cmd("qs &")
+  hl.exec_cmd("awww-daemon &")
+  hl.exec_cmd("sleep 10 &")
+  hl.exec_cmd("~/Scripts/set-wallpaper.sh")
+  hl.exec_cmd("wl-paste --watch cliphist store")
+  hl.dsp.exec_cmd("cliphist wipe")
+  --   hl.exec_cmd("nm-applet")
+  --   hl.exec_cmd("waybar & hyprpaper & firefox")
+end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -259,11 +261,16 @@ hl.bind(
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-
+hl.bind(
+  mainMod .. " + V",
+  hl.dsp.exec_cmd(
+    "cliphist list | wofi -c ~/.config/wofi/config-cliphist -S dmenu | cliphist decode | wl-copy && wtype -M ctrl v -m ctrl"
+  )
+)
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
@@ -322,6 +329,10 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- Power button remap
 hl.bind("XF86PowerOff", hl.dsp.exec_cmd("wleave"), { locked = true })
+
+-- PRT SC remap
+hl.bind("Print", hl.dsp.exec_cmd("~/Scripts/screenshot-region.sh"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/Scripts/screenshot-window.sh"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
