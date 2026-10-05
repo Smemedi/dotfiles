@@ -14,6 +14,9 @@ ShellRoot {
     anchors.left: true
 		anchors.right: true
 		implicitHeight: 35
+		margins {
+			top: 3
+		}
     color: "transparent"
 		exclusiveZone: implicitHeight
 

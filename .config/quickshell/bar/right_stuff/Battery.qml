@@ -46,6 +46,7 @@ Item {
             text: Math.round(batteryLevel * 100) + "%"
 						font.pixelSize: Config.fontSize
 						font.family: Config.fontFamily
+						font.bold: true
             color: {
                 let pct = Math.round(batteryLevel * 100)
                 if (pct >= 50) return "#a6e3a1"

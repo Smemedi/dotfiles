@@ -5,7 +5,7 @@ import ".."
 Item {
     id: workspaceModule
 		property int spacing: 6
-	height: Config.panelHeight
+		height: Config.panelHeight
 
     Rectangle {
         id: background
@@ -30,7 +30,7 @@ Item {
 
                     font {
                         family: "Symbols Nerd Font"
-                        pixelSize: 16
+                        pixelSize: 18
                         bold: true
                     }
 

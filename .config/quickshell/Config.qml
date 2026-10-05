@@ -4,10 +4,11 @@ import Quickshell
 
 Singleton {
     // Panel settings
-    readonly property int panelHeight: 40
+    readonly property int panelHeight: 35
     readonly property real panelOpacity: 0.45
     readonly property color panelBackground: "#1a1a1a"
     readonly property color panelForeground: "#ffffff"
+    readonly property int bubbleRadius: 10
     
     // Font settings (SF Pro style, fallback to system sans)
     readonly property string fontFamily: "JetBrains Mono"
