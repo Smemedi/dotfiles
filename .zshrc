@@ -1,13 +1,21 @@
 [[ $- != *i* ]] && return
 
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
+# regular shell
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
+# for tmux bc they're weird
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 
 bindkey '^[[D' backward-char
 bindkey '^[[C' forward-char
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word
+
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -24,7 +32,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias sp='sudo pacman'
 alias spua='sudo pacman -Syu'
